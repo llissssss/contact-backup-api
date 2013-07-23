@@ -16,10 +16,11 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-
-Route::group(array('prefix' => 'api/v1',  'before' => 'auth.basic2'), function()
+Route::post('api/v1/user/create', 'UserController@create');
+Route::group(array('prefix' => 'api/v1',  'before' => 'autenticacio'), function()
 {
     Route::resource('backup', 'BackupController');
+    Route::resource('user', 'UserController', array('only' => array('show','update')));
 });
 
 

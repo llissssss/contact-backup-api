@@ -44,10 +44,15 @@ Route::filter('auth.basic', function()
 	return Auth::basic("email");
 });
 
-Route::filter('auth.basic2', function()
+Route::filter('autenticacio', function()
 {
-	$email = Input::get('email');
-	return $email;
+	$email = Input::get("email");
+	$contrasenya = Input::get("contrasenya");
+	
+	if (!Auth::attempt(array('email' => $email, 'password' => $contrasenya)))
+	{
+		return Response::make('', 401);
+	}
 });
 
 /*

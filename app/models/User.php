@@ -3,8 +3,14 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends \LaravelBook\Ardent\Ardent implements UserInterface, RemindableInterface {
 
+	protected $fillable = array("email","password");
+  	public static $rules = array(
+	    'email' 				=> 'required|unique:users,email',
+	    'password'              => 'required|alpha_num|between:6,12|confirmed',
+	    'password_confirmation' => 'required|alpha_num|between:6,12'
+	    );
 	/**
 	 * The database table used by the model.
 	 *
