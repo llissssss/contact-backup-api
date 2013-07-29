@@ -16,16 +16,33 @@
             });
         });
     */
+    
+    // CREAR UN USUARI
     $(document).ready(function(){
             $.ajax({
-                url: "/contactbackup/public/api/v1/user/create",
-                data: {email : "llis@lliss.com", password: "llisss", password_confirmation: "llisss"},
+                url: "api/v1/user",
+                data: {email : "albert@javajan.com", password: "albert", password_confirmation: "albert"},
                 type: "POST",
                 context: document.body
                 }).done(function(data) {
                 console.log(data);
             });
         });
+    
+    /*
+        // MODIFICAR USUARI
+    $(document).ready(function(){
+            $.ajax({
+                url: "api/v1/user/save",
+                data: {email : "albert@javajan.com", password: "lliset", email_new : "apple@javajan.com", password_new: "lliset", password_new_confirmation: "lliset"},
+                type: "POST",
+                context: document.body
+                }).done(function(data) {
+                console.log(data);
+            });
+        });
+*/
+
     </script>
 </head>
 <body>

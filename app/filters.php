@@ -47,9 +47,9 @@ Route::filter('auth.basic', function()
 Route::filter('autenticacio', function()
 {
 	$email = Input::get("email");
-	$contrasenya = Input::get("contrasenya");
+	$password = Input::get("password");
 	
-	if (!Auth::attempt(array('email' => $email, 'password' => $contrasenya)))
+	if (!Auth::attempt(array('email' => $email, 'password' => $password)))
 	{
 		return Response::make('', 401);
 	}

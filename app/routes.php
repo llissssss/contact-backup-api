@@ -16,11 +16,16 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::post('api/v1/user/create', 'UserController@create');
+Route::group(array('prefix' => 'api/v1'), function()
+{
+	Route::resource('user', 'UserController', array('only' => array('store')));
+});
+
 Route::group(array('prefix' => 'api/v1',  'before' => 'autenticacio'), function()
 {
+	Route::post('user/save','UserController@save');
     Route::resource('backup', 'BackupController');
-    Route::resource('user', 'UserController', array('only' => array('show','update')));
+    Route::resource('user', 'UserController', array('only' => array('save')));
 });
 
 
