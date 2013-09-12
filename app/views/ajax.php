@@ -20,7 +20,7 @@
     // CREAR UN USUARI
     $(document).ready(function(){
             $.ajax({
-                url: "api/v1/user",
+                url: "api/v1/user/new",
                 data: {email : "albert@javajan.com", password: "albert", password_confirmation: "albert"},
                 type: "POST",
                 context: document.body

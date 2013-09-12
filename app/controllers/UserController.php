@@ -7,7 +7,7 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function new()
 	{
 		$user = new User;
 		$user->email = Input::get("email");

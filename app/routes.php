@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::group(array('prefix' => 'api/v1'), function()
 {
-	Route::resource('user', 'UserController', array('only' => array('store')));
+	Route::post('user/new', 'UserController@new', array('only' => array('new')));
 });
 
 Route::group(array('prefix' => 'api/v1',  'before' => 'autenticacio'), function()
